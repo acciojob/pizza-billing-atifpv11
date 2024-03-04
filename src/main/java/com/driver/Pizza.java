@@ -6,15 +6,12 @@ public class Pizza {
     private Boolean isVeg;
     private String bill;
 
-    private Boolean flagCheese;
-    private Boolean flagToppings;
-    private Boolean flagTakeaway;
+    private Boolean flagCheese=false;
+    private Boolean flagToppings=false;
+    private Boolean flagTakeaway=false;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        this.flagCheese=false;
-        this.flagToppings=false;
-        this.flagTakeaway=false;
         // your code goes here
         if(isVeg)
         {
@@ -32,15 +29,15 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        if(!flagCheese)
+        if(!this.flagCheese)
             this.price+=80;
-        flagCheese=true;
+        this.flagCheese=true;
 
     }
 
     public void addExtraToppings(){
         // your code goes here
-        if(!flagToppings)
+        if(!this.flagToppings)
         {
             if(isVeg)
             {
@@ -51,21 +48,21 @@ public class Pizza {
                 this.price+=120;
             }
         }
-        flagToppings=true;
+        this.flagToppings=true;
     }
 
     public void addTakeaway(){
-        if(!flagTakeaway)
+        if(!this.flagTakeaway)
             this.price+=20;
-        flagTakeaway=true;
+        this.flagTakeaway=true;
     }
 
     public String getBill(){
         // your code goes here
         if(isVeg=true)
-            bill="Base Price Of The Pizza:300\n";
+            bill="Base Price Of The Pizza: 300\n";
         else
-            bill="Base Price Of The Pizza:300\n";
+            bill="Base Price Of The Pizza: 300\n";
         if(flagCheese)
         {
             this.bill+="Extra Cheese Added: 80\n";
@@ -87,6 +84,7 @@ public class Pizza {
         }
 
         String totalPrice= Integer.toString(price);
+
         this.bill+="Total Price: "+totalPrice+"\n";
         return this.bill;
     }
